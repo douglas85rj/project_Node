@@ -5,8 +5,8 @@ import {ToastContainer} from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 import styled from "styled-components";
 
-import Form from "./components/Form.js";
-import Grid from "./components/Grid.js";
+import Form from "./components/Form.jsx";
+import Grid from "./components/Grid.jsx";
 
 import {useEffect} from "react"
 
