@@ -1,6 +1,8 @@
 import React, { useRef } from "react";
 import axios from 'axios';
 import styled from "styled-components";
+import { toast, ToastContainer } from 'react-toastify';
+  import "react-toastify/dist/ReactToastify.css";
 
 const FormContainer = styled.form`
     width: 100%;

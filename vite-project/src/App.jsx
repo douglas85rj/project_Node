@@ -43,7 +43,9 @@ function App() {
     }
     catch(error)
     {
-      toast.error(error)
+      toast.error(error),{
+        position: toast.POSITION.TOP_LEFT
+      }
     }
 
   }
@@ -55,7 +57,7 @@ function App() {
   return (
     <div >
       <Container>
-        <Title> Employee Management System </Title>
+        <Title> Lista de contatos </Title>
         <Form/>        
         <Grid employees={employees}/>
       </Container>
