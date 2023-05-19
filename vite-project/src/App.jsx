@@ -1,35 +1,69 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import GlobalStyle from "./settingStyle/styles";
+
+import {toast} from "react-toastify";
+import {ToastContainer} from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
+import styled from "styled-components";
+
+import Form from "./components/Form.js";
+import Grid from "./components/Grid.js";
+
+import {useEffect} from "react"
+
+import {useState} from "react";
+
+import axios from "axios"
+
+
+const Container = styled.div`
+    width: 100%;
+    margin-top: 20px;
+    display: flex;
+    background: white;
+    flex-direction: column;
+    align-items: center;
+    gap:10px;
+`;
+
+const Title = styled.h2``;
+
 
 function App() {
-  const [count, setCount] = useState(0)
 
+  
+  const [employees,setUsers] =  useState([]);
+  const [onEdit,setOnEdit] =  useState(null);
+
+  const getEmployees = async()=>{
+    try{
+        const res = await axios.get("http://localhost:3333/employees");
+        console.log(res.data)
+        setUsers(res.data)
+
+    }
+    catch(error)
+    {
+      toast.error(error)
+    }
+
+  }
+
+  useEffect(()=>{
+    getEmployees();
+  }, [setUsers])
+  
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <div >
+      <Container>
+        <Title> Employee Management System </Title>
+        <Form/>        
+        <Grid employees={employees}/>
+      </Container>
+
+      <ToastContainer autoClose={4000} position={toast.POSITION.TOP_CENTER}/>
+      <GlobalStyle/>
+    </div>
+  );
 }
 
-export default App
+export default App;
