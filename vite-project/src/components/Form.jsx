@@ -1,6 +1,7 @@
 import React, { useRef } from "react";
 import axios from 'axios';
 import styled from "styled-components";
+
 import { toast, ToastContainer } from 'react-toastify';
   import "react-toastify/dist/ReactToastify.css";
 
@@ -88,7 +89,11 @@ const Form = () =>{
 
             <InputArea>
                 <Label>Name</Label>
-                <Input name="name" />
+                <Input name="name"            
+                                     />
+              
+           
+ 
             </InputArea>
             <InputArea>
                 <Label>Age</Label>

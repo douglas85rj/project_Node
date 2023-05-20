@@ -67,6 +67,22 @@ function App() {
       <GlobalStyle/>
     </div>
   );
+
+  const putEmployees = async()=>{
+    try{
+        const res = await axios.put("http://localhost:3333/employees");
+        console.log(res.data)
+        setUsers(res.data)
+
+    }
+    catch(error)
+    {
+      toast.error(error),{
+        position: toast.POSITION.TOP_LEFT
+      }
+    }
+
+  }
 }
 
 export default App;

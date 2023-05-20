@@ -32,7 +32,7 @@ export const Td = styled.td`
     width: auto;
 `;
 
-const Grid = ({ employees }) => {
+const Grid = ({ employees }, {setOnEdit}) => {
     return (
       <div className="employee-grid">
         {employees.map(employee => (
@@ -40,6 +40,7 @@ const Grid = ({ employees }) => {
             <p>Name: {employee.name}</p>
             <p>Email: {employee.email}</p>
             <p>Department: {employee.department}</p>
+            <p>Age: {employee.age}</p>
             <div className="icon-container">
                 <FaEdit className="edit-icon"  
                   onClick={() => setOnEdit(employee.id)}

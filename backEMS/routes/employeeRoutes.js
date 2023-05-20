@@ -1,7 +1,7 @@
 const express = require('express')
 const router = express.Router()
 
-//const employeeController = require('../controller/employeeController')
+
 const employeeController = require('../controller/employeeFileController') 
 
 router.get('/',employeeController.getEmployees)
