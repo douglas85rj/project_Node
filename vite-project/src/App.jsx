@@ -59,7 +59,8 @@ function App() {
       <Container>
         <Title> Lista de contatos </Title>
         <Form/>        
-        <Grid employees={employees}/>
+        <Grid employees={employees} onEdit ={onEdit}/>
+      
       </Container>
 
       <ToastContainer autoClose={4000} position={toast.POSITION.TOP_CENTER}/>

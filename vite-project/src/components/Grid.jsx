@@ -41,7 +41,10 @@ const Grid = ({ employees }) => {
             <p>Email: {employee.email}</p>
             <p>Department: {employee.department}</p>
             <div className="icon-container">
-                <FaEdit className="edit-icon" />
+                <FaEdit className="edit-icon"  
+                  onClick={() => setOnEdit(employee.id)}
+                  
+                 />
                 <FaTrash className="delete-icon" />
             </div>
           </div>          

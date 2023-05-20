@@ -4,6 +4,12 @@ import styled from "styled-components";
 import { toast, ToastContainer } from 'react-toastify';
   import "react-toastify/dist/ReactToastify.css";
 
+   //success message after adding employee 
+ const showToastMessage = () => {
+    toast.success('Employee added successfully!',{
+    position: toast.POSITION.TOP_RIGHT});
+    };
+
 const FormContainer = styled.form`
     width: 100%;
     margin-top: 30px;
@@ -44,6 +50,9 @@ const Button = styled.button`
 `;
 
 const Form = () =>{
+
+   
+
     const ref = useRef();
 
     const handleSubmit = async (e) => {
@@ -74,7 +83,9 @@ const Form = () =>{
       };
 
     return (
+        
         <FormContainer  onSubmit={handleSubmit} ref = {ref}>
+
             <InputArea>
                 <Label>Name</Label>
                 <Input name="name" />
@@ -91,9 +102,13 @@ const Form = () =>{
                 <Label>Department</Label>
                 <Input name="department" />
             </InputArea>
+         
+            <Button type = "submit" onClick={showToastMessage}> Save </Button>
+            <ToastContainer />
 
-            <Button type = "submit"> Save </Button>
+            
         </FormContainer>
+        
     );
 
 };
